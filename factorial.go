@@ -1,6 +1,8 @@
 package main
 
+import "os"
 import "fmt"
+import "strconv"
 
 func factorial(x uint) uint {
 	if x == 0 {
@@ -10,5 +12,10 @@ func factorial(x uint) uint {
 }
 
 func main() {
-	fmt.Println(factorial(10))
+	num, err := strconv.Atoi(os.Args[1])
+	if err != nil {
+		fmt.Println("Not a number")
+	}
+
+	fmt.Println(factorial(uint(num)))
 }
